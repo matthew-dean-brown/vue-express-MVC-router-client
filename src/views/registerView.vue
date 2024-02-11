@@ -21,6 +21,8 @@
     <button @click="register()">
       Register
     </button>
+    <br>
+    <button @click="getInfo()">getInfo</button>
   </form>
   </div>
 </template>
@@ -40,6 +42,9 @@ export default {
       console.log('register button was clicked'+ this.email + this.password);
       // console.log(this.$data);
       this.$store.dispatch('register',this.$data)
+    },
+    getInfo(){
+      this.$store.dispatch('getInfo')
     }
   }
 
