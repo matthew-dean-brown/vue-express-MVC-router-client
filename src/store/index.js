@@ -16,14 +16,10 @@ export default createStore({
     async register(context,data){
       console.log(data)
       const login = await axios.post(baseURL+'/register', data)
-      const token = document.cookie
-      console.log(token)
+      console.log(data)
     },
     async getInfo(context){
-      const token = document.cookie
-      console.log(token);
-      const api = await axios.get(baseURL+'/api', token)
-      console.log()
+      const api = await axios.get(baseURL+'/api')
     }
   },
   modules: {
