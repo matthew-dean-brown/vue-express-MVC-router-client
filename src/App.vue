@@ -3,12 +3,29 @@
   <nav>
     <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link> |
-    <router-link to="/register">Register</router-link>
+    <router-link v-if="!cook"  to="/register">Register</router-link>
+    mm{{ cook }}mm
   </nav>
+  <button @click="signout()">Logout</button>
   <router-view/>
   </div>
 </template>
+<script>
 
+export default {
+  data(){
+   return{
+    cook:this.$cookies.isKey('jwt')
+   }
+  },
+  methods:{
+    signout(){
+      this.$cookies.remove('jwt')
+      window.location.reload()
+    }
+  }
+}
+</script>
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
